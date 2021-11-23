@@ -1,6 +1,3 @@
-
-
-
 const registrarIMC = (value) =>{
     if(value>50 || value<0 ){
         return "fuera_de_rango"
@@ -14,14 +11,18 @@ const registrarIMC = (value) =>{
     
     const retorno = rangosIMC.map(function(elemento){
         if(value >= elemento.de && value <= elemento.hasta){
-            const elementos = (elemento.etiqueta);
-            return elementos
+            return elemento.etiqueta
         }
     })
-    console.log(retorno);
+    
+    let imprimir = retorno.find(elemento => {
+        if(elemento != undefined){
+            return elemento
+        }
+    })
 
-
-    return retorno
+    console.log(imprimir)
+    return imprimir
 }
 
 const calcularIMC = (peso, estatura) =>{
